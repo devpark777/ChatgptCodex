@@ -1,0 +1,162 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --accent: #38bdf8;
+  --text: #f8fafc;
+  --grid: #334155;
+  --shadow: rgba(15, 23, 42, 0.65);
+  font-family: "Pretendard", "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(circle at top, #1d4ed8, var(--bg));
+  color: var(--text);
+}
+
+.tetris-app {
+  width: min(960px, 95vw);
+  margin-top: 3rem;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .tetris-app {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .info {
+    order: -1;
+  }
+}
+
+.game-area {
+  background: var(--panel);
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.stat {
+  background: rgba(15, 23, 42, 0.5);
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  min-width: 90px;
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  color: #cbd5f5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.value {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+#restart {
+  background: var(--accent);
+  color: #0b1120;
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#restart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+}
+
+#restart:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+#board {
+  background: radial-gradient(circle at center, rgba(148, 163, 184, 0.2), rgba(15, 23, 42, 0.9));
+  border-radius: 16px;
+  border: 4px solid rgba(148, 163, 184, 0.25);
+  box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.3);
+}
+
+.info {
+  background: rgba(15, 23, 42, 0.6);
+  padding: 1.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px var(--shadow);
+}
+
+.info h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.info ul {
+  padding-left: 1.25rem;
+  text-align: left;
+}
+
+.info li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.hint {
+  background: rgba(56, 189, 248, 0.12);
+  border-left: 4px solid var(--accent);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.credits {
+  margin: 2rem 0;
+  color: rgba(241, 245, 249, 0.7);
+  font-size: 0.9rem;
+}
